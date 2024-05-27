@@ -76,7 +76,7 @@ router.get('/:id/exercise-set', function (req, res, next) {
 // 유저 운동 기록 가져오기
 router.get('/exercise-record/:id', function (req, res, next) {
     console.log(req.params.id)
-    var sql = "select id, user_exercise_id, target_count, do_count, CONVERT_TZ(work_date, '+0:00', '+9:00') as work_date from user_exercise_record where user_exercise_id = ?";
+    var sql = "select id, user_exercise_id, target_count, do_count, CONVERT_TZ(work_date, '+0:00', '+9:00') as work_date from user_exercise_record where user_exercise_id = ? order by id desc";
     var params = [req.params.id]
     conn.query(sql, params, function (err, user_info) {
         if (err) {
@@ -103,7 +103,7 @@ router.post('/exercise-record', function (req, res, next) {
 router.get('/exercise-record/:id/week', function (req, res, next) {
     console.log(req.params.id)
     var sql = "select id, user_exercise_id, target_count, do_count, CONVERT_TZ(work_date, '+0:00', '+9:00') as work_date from user_exercise_record\n" +
-        "where user_exercise_id = ? AND work_date >= DATE_SUB(NOW(), INTERVAL 1 WEEK)";
+        "where user_exercise_id = ? AND work_date >= DATE_SUB(NOW(), INTERVAL 1 WEEK) order by id desc";
     var params = [req.params.id]
     conn.query(sql, params, function (err, user_info) {
         if (err) {

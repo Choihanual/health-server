@@ -6,8 +6,9 @@
 
 var app = require('../app');
 var debug = require('debug')('health:server');
-var http = require('http');
+var https = require('https');
 const webSocket = require("../socket");
+var path = require("path")
 /**
  * Get port from environment and store in Express.
  */
@@ -18,8 +19,18 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
+const fs = require('fs');
 
-var server = http.createServer(app);
+// SSL 키 및 인증서 경로 설정
+const privateKey = fs.readFileSync(path.join(__dirname + "/rootca.key"))
+const certificate = fs.readFileSync(path.join(__dirname + "/rootca.crt"))
+// const ca = fs.readFileSync('/path/to/ca_bundle.crt', 'utf8');
+
+const credentials = {
+  key: privateKey,
+  cert: certificate
+}
+var server = https.createServer(credentials, app);
 
 /**
  * Listen on provided port, on all network interfaces.

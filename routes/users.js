@@ -98,6 +98,36 @@ router.get('/:id/exercise-set', function (req, res, next) {
                     console.log(exercise_record)
                     if (exercise_record.length !== 0) {
                         var sql = "select * from user where id = ?"
+                        var params = [req.params.id]
+                        conn.query(sql, params, function(err, user_info) {
+                            if (err) {
+                                console.log("err err", err)
+                            } else {
+                                const bmi = user_info[0].weight / ((user_info[0].height/100)*(user_info[0].height/100))
+                                var count = 0
+                                // 비만인 경우 이전 기록의 +1
+                                if (bmi >= 30) {
+                                    count = exercise_record[0].do_count + 1
+                                    // 과체중인 경우 이전 기록의 +2
+                                } else if (bmi >= 25) {
+                                    count = exercise_record[0].do_count + 2
+                                    // 정상인 경우 이전 기록의 +3
+                                } else {
+                                    count = exercise_record[0].do_count + 3
+                                }
+
+                                var sql = "Update user_exercise SET target_count = ? WHERE user_exercise_id = ?"
+                                var params = [count, result[0].user_exercise_id]
+                                conn.query(sql, params, function(err, update_result){
+                                    if (err) {
+                                        console.log(err)
+                                    } else {
+                                        console.log("good")
+                                    }
+                                })
+
+                            }
+                        })
 
                     }
                 }

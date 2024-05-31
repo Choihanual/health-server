@@ -4,7 +4,7 @@ var db_info = {
     host: "localhost",
     port: "3306",
     user: "root",
-    password: "coc@690312",
+    password: "asdzx159",
     database: "health"
 }
 

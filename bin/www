@@ -24,7 +24,6 @@ const fs = require('fs');
 // SSL 키 및 인증서 경로 설정
 const privateKey = fs.readFileSync(path.join(__dirname + "/rootca.key"))
 const certificate = fs.readFileSync(path.join(__dirname + "/rootca.crt"))
-// const ca = fs.readFileSync('/path/to/ca_bundle.crt', 'utf8');
 
 const credentials = {
   key: privateKey,

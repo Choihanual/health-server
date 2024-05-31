@@ -33,7 +33,7 @@ router.post('/', function (req, res, next) {
             }
 
             var sql = "insert into user_exercise values (?,?,?,?)"
-            var params = [null, req.body.id, "squarts", recommendedCount]
+            var params = [null, req.body.id, "squats", recommendedCount]
             console.log(sql)
             console.log(params)
             conn.query(sql, params, function (err, result) {

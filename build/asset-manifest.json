@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.53062d19.css",
-    "main.js": "/static/js/main.2f8bdc99.js",
+    "main.css": "/static/css/main.b3338bb4.css",
+    "main.js": "/static/js/main.313342cf.js",
     "static/js/453.46877901.chunk.js": "/static/js/453.46877901.chunk.js",
     "static/media/squatSmall.png": "/static/media/squatSmall.8ca638d5cc0a68519cd3.png",
     "static/media/squat.png": "/static/media/squat.c482aea1f77894ac6418.png",
     "static/media/exercise_1.png": "/static/media/exercise_1.6887eda8cd4b9f39104a.png",
     "static/media/exercise_2.png": "/static/media/exercise_2.93babf6b6c502cf27342.png",
     "index.html": "/index.html",
-    "main.53062d19.css.map": "/static/css/main.53062d19.css.map",
-    "main.2f8bdc99.js.map": "/static/js/main.2f8bdc99.js.map",
+    "main.b3338bb4.css.map": "/static/css/main.b3338bb4.css.map",
+    "main.313342cf.js.map": "/static/js/main.313342cf.js.map",
     "453.46877901.chunk.js.map": "/static/js/453.46877901.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.53062d19.css",
-    "static/js/main.2f8bdc99.js"
+    "static/css/main.b3338bb4.css",
+    "static/js/main.313342cf.js"
   ]
 }
